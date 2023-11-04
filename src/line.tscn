@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dob65t3mnkyi0"]
+
+[ext_resource type="Script" path="res://src/Line.gd" id="1_f41vk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Line2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_f41vk")
+
+[node name="notifier" type="VisibleOnScreenNotifier2D" parent="Line2D"]
+position = Vector2(0, 359)
+scale = Vector2(1, 35.9)
+
+[node name="Line2D" type="Line2D" parent="Line2D"]
+points = PackedVector2Array(0, 0, 5, 717)
+default_color = Color(1, 0, 0, 0.32549)
+
+[connection signal="screen_exited" from="Line2D/notifier" to="Line2D" method="_on_screen_exited"]
