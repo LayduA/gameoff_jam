@@ -37,5 +37,5 @@ polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
 [node name="Platform_view" type="Polygon2D" parent="Platform"]
 polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
 
-[connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Platform" method="stop_generating"]
 [connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Line/Line_body" method="_on_screen_exited"]
+[connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Platform" method="stop_generating"]

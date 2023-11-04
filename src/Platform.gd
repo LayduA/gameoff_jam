@@ -23,6 +23,7 @@ func _ready():
 		Vector2(line.position.x, 10),
 	]))
 	Platform_hitbox.set_name("Platform_hitbox")
+	self.set_collision_layer_value(4, true)
 	Platform_view.set_name("Platform_view")
 	self.add_child(Platform_hitbox)
 	self.add_child(Platform_view)
@@ -49,5 +50,4 @@ func set_y_coordinate(y):
 	$Platform_hitbox.polygon[3][1] = y 
 
 func stop_generating():
-	print(self)
 	self.is_generating = false
