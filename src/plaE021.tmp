@@ -10,6 +10,19 @@
 [node name="Platform_manager" type="Node2D"]
 script = ExtResource("1_geuhr")
 
+[node name="Platform" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_oxlv4")
+
+[node name="Platform_hitbox" type="CollisionPolygon2D" parent="Platform"]
+modulate = Color(0.905882, 0, 1, 1)
+material = SubResource("CanvasItemMaterial_ua5i4")
+polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
+
+[node name="Platform_view" type="Polygon2D" parent="Platform"]
+polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
+
 [node name="Line" parent="." instance=ExtResource("3_ddrh0")]
 
 [node name="Line_body" type="CharacterBody2D" parent="Line"]
@@ -23,19 +36,4 @@ scale = Vector2(1, 35.9)
 points = PackedVector2Array(0, 0, 0, 717)
 default_color = Color(1, 0, 0, 0.32549)
 
-[node name="Platform" type="StaticBody2D" parent="."]
-visible = false
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("1_oxlv4")
-
-[node name="Platform_hitbox" type="CollisionPolygon2D" parent="Platform"]
-modulate = Color(0.905882, 0, 1, 1)
-material = SubResource("CanvasItemMaterial_ua5i4")
-polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
-
-[node name="Platform_view" type="Polygon2D" parent="Platform"]
-polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
-
-[connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Platform" method="stop_generating"]
 [connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Line/Line_body" method="_on_screen_exited"]

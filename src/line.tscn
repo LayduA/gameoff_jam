@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/Line.gd" id="1_f41vk"]
 
-[node name="Node2D" type="Node2D"]
+[node name="line" type="Node2D"]
 
 [node name="Line2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_f41vk")

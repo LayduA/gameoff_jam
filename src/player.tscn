@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hed2r"]
 size = Vector2(28, 28)
 
-[node name="Node2D" type="Node2D"]
+[node name="player_character" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 8
