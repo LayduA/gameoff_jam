@@ -1,41 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://r2kl3nggfg4i"]
+[gd_scene load_steps=3 format=3 uid="uid://r2kl3nggfg4i"]
 
-[ext_resource type="Script" path="res://src/Platform_generation.gd" id="1_geuhr"]
-[ext_resource type="Script" path="res://src/Platform.gd" id="1_oxlv4"]
+[ext_resource type="Script" path="res://src/Platform_manager.gd" id="1_jnu8t"]
 [ext_resource type="PackedScene" uid="uid://dob65t3mnkyi0" path="res://src/line.tscn" id="3_ddrh0"]
-[ext_resource type="Script" path="res://src/Line.gd" id="4_upgwo"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ua5i4"]
 
 [node name="Platform_manager" type="Node2D"]
-script = ExtResource("1_geuhr")
+script = ExtResource("1_jnu8t")
 
-[node name="Line" parent="." instance=ExtResource("3_ddrh0")]
-
-[node name="Line_body" type="CharacterBody2D" parent="Line"]
-script = ExtResource("4_upgwo")
-
-[node name="Line_notifier" type="VisibleOnScreenNotifier2D" parent="Line/Line_body"]
-position = Vector2(0, 359)
-scale = Vector2(1, 35.9)
-
-[node name="Line2D" type="Line2D" parent="Line/Line_body"]
-points = PackedVector2Array(0, 0, 0, 717)
-default_color = Color(1, 0, 0, 0.32549)
-
-[node name="Platform" type="StaticBody2D" parent="."]
-visible = false
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("1_oxlv4")
-
-[node name="Platform_hitbox" type="CollisionPolygon2D" parent="Platform"]
-modulate = Color(0.905882, 0, 1, 1)
-material = SubResource("CanvasItemMaterial_ua5i4")
-polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
-
-[node name="Platform_view" type="Polygon2D" parent="Platform"]
-polygon = PackedVector2Array(0, 0, 0, 10, 10, 10, 10, 0)
-
-[connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Line/Line_body" method="_on_screen_exited"]
-[connection signal="screen_exited" from="Line/Line_body/Line_notifier" to="Platform" method="stop_generating"]
+[node name="line" parent="." instance=ExtResource("3_ddrh0")]
